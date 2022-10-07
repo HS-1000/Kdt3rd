@@ -3,6 +3,7 @@ const getValueById = function(inputId) {
     let inputVal = inputTag.value;
     return inputVal;
 }
+// will replace tag2value function
 const sumCheckboxBySelector = function(boxSelector) {
     let boxs = document.querySelectorAll(boxSelector);
     let answer = 0;
@@ -11,14 +12,78 @@ const sumCheckboxBySelector = function(boxSelector) {
     }
     return answer;
 }
-const tableSort = function(tableTag, baseLine) {
-    //tableTag : 테이블테그 객체
-    //baseLine : 왼쪽부터 1
-    let haveTh = false;
-    let nowLine = tableTag.children[0].children[0].children;
-    console.log(nowLine);
+const tag2value = function(element) {
+    //일부tag 값의 예외를 다루기위한 함수
+    let answer;
+    if(element.tagName == "INPUT") {
+        if(element.type == "checkbox") {
+            answer = Number(element.checked);
+        } else {
+            answer = element.value;
+        }
+    } else {
+        answer = element.innerText;
+    }    
+    // return answer;
+    if(Number(answer) == answer) {
+        return Number(answer);
+    } else {
+        return answer;
+    }
 }
-tableSort(document.querySelector("table"), 0);
-
-
+let nums = [1,2,3,4,5,6];
+const arraySwap = function(array, index1, index2){
+    // array의 두원소 위치 교환
+    // 사용안됨    
+    let temp = array[index1];
+    array[index1] = array[index2];
+    array[index2] = temp;
+}
+const arrayInsert = function(array, index, value) {
+    // 배열의 특정index에 샵입
+    let answer = [];
+    for(let i=0; i<array.length; i++) {
+        if(i == index) {
+            answer.push(value);            
+        }
+        answer.push(array[i]);
+    }
+    return answer;
+}
+const sortElementBySelector = function(selector, oprandSelector) {
+    // selector : 정렬대상의 공통 querySelector
+    // oprandSelector : 정렬할 기준의 공통 querySelector
+    let targetTags = document.querySelectorAll(selector);
+    let oprandTags = document.querySelectorAll(oprandSelector); 
+    let size = targetTags.length;
+    let map = [0];
+    let index;
+    for(let index=1; index<size; index++) {
+        // console.log(index, targetTags[index], Number(targetTags[index].innerText));
+        for(let mapIndex=0; mapIndex<=map.length; mapIndex++) {
+            if(mapIndex == map.length) {
+                map.push(index);
+                break;
+            }
+            if(tag2value(oprandTags[index]) < tag2value(oprandTags[map[mapIndex]])) {
+                map = arrayInsert(map, mapIndex, index);
+                break;
+            }
+        }
+    }
+    let targetTagsHTML = [];
+    for (let i=0; i<map.length; i++) {
+        targetTagsHTML.push(targetTags[i].innerHTML);
+    }
+    for (let i=0; i<map.length; i++) {
+        targetTags[i].innerHTML = targetTagsHTML[map[i]];
+    }
+}
+let sortBtn = document.getElementById('div_sort');
+sortBtn.addEventListener('click', function() {
+    console.log(1);
+    sortElementBySelector('.sortTest div', '.sortTest div');
+});
+console.log("5" < Number("5"), "5" > Number("5"), "5" == Number("5"));
+// sortBtn.addEventListener('click', );
 
