@@ -25,6 +25,7 @@ const tag2value = function(element) {
         answer = element.innerText;
     }    
     // return answer;
+    // 문자열 판별을 위해 수정됨
     if(Number(answer) == answer) {
         return Number(answer);
     } else {
@@ -84,6 +85,7 @@ sortBtn.addEventListener('click', function() {
     console.log(1);
     sortElementBySelector('.sortTest div', '.sortTest div');
 });
-console.log("5" < Number("5"), "5" > Number("5"), "5" == Number("5"));
-// sortBtn.addEventListener('click', );
-
+let likeSortBtn = document.getElementById('like_sort');
+likeSortBtn.addEventListener('click', function() {
+    sortElementBySelector('.img_card', '.img_card>div>span');
+});
