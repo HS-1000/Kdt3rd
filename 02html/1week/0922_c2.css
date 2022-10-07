@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+    height: 1000px;
+}
+.dis {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.s {
+    /* default */
+    position: static;
+    background-color: pink;
+}
+.r {
+    /* 자신이 있어야하는 위치가 기준 
+    top, left, right, bottom 각방향에 여백추가
+    top -> 아래로 이동*/
+    position: relative;
+    background-color: aquamarine;
+    left: 100px;
+}
+.a {
+    /* 현재 body(가장가까운 "값을 가지는"조상태그)기준, 
+    $.static 만 아니면 되는건가?
+    조상중에 relative가 없다면 body태그 기준 
+    top -> 위쪽으로부터 
+    bottom -> 아래로부터
+    left, right, ....*/
+    background-color: gold;
+    position: absolute;
+    /* top: 0; */
+    bottom: 100px;
+}
+.f {
+    /* viewport 기준으로 특정위치에 배치됨
+    viewport : 현재 보고 있는 화면의 영역*/
+    background-color: coral;
+    position: fixed;
+    bottom: 0;
+}
+.zbox{
+    background-color: white;
+    width: 90%;
+    margin: 5%;
+    height: 30%;
+    position: relative;
+    z-index: -999;
+}
+.boxa{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    line-height: 3rem;
+}
+.boxa#a1 {
+    background-color: red;
+    z-index: 8;
+}
+.boxa#a2 {
+    background-color: blue;
+    top: 1rem;
+    left: 1rem;
+    z-index: 7;
+}
+.boxa#a3 {
+    background-color: gold;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10;
+}
+.boxa#a4 {
+    background-color: green;
+    top: 3rem;
+    left: 3rem;
+    z-index: 6;
+}
+.boxa#a5 {
+    background-color: gray;
+    top: 4rem;
+    left: 4rem;
+    z-index: 5;
+}
+.zbox .parent {
+    width: 400px;
+    height: 200px; 
+    background-color: skyblue;
+    overflow-y: scroll;
+}
+/* overflow 
+    -visible    -> default, 그냥 보이는거
+    -hidden     -> 숨기는거(안보임)
+    -scroll     -> 스크롤 표시
+    -auto       -> 넘칠때만 스크롤 표시
+
+    overflow-x, overflow-y 로 분리해서 설정가능
+*/

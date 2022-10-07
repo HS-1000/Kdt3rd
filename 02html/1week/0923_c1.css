@@ -1,0 +1,215 @@
+.inline1,
+.inline2 {
+    background-color: pink;
+}
+
+.inline1 {
+    display: inline;
+    background-color: red;
+}
+
+.inline2 {
+    display: inline;
+    background-color: blue;
+}
+
+.block1, .block2 {
+    display: block;
+    height: 5rem;
+    width: 5rem;
+}
+
+.block1 {
+    background-color: red;
+    padding: 10px 30px;
+}
+
+.block2 {
+    background-color:  blue;
+}
+
+.inlineB1 {
+    display: inline-block;
+    background-color: red;
+}
+
+.inlineB2 {
+    display: inline-block;
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+}
+
+.dnone {
+    width: 5rem;
+    height: 5rem;
+    background-color: green;
+    display: none;
+}
+
+.btn1 {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 300px;
+    background-color: gold;
+    display: inline-block;
+
+}
+.btn2 {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 100px;
+    background-color: royalblue;
+    display: inline-block;
+}
+.btn1:active {
+    display: none;
+}
+.main {
+    width: 90%;
+    margin: 0 auto;
+    /* margin: 0 auto; -> 가운데 정렬 */
+    height: 500px;
+    background-color: lightgray;
+    display: flex;
+    /* main axis : 주축
+    cross axis : 교차축 */
+    /* flex-direction: row; */
+    /* row(default), row-reverse, column, column-reverse 
+    row : left->right, 주축 가로
+    row-reverse : right->left, 주축 가로
+    column : top->bottom
+    column-reverse : bottom->top*/
+    /* justify-content: center; */
+    /* 주축 아이템을 어떻게 배치할 것 인가 
+    
+    - flex-start : default; 아이템을 스타트 기준으로 나열
+    - flex-end : 아이템을 끝점 기준으로 나열 [.....123]
+        >>>flex-direction:*-reverse; 이면 주축의 방향 주의
+    - space-between : 양끝점에 아이템배치, 균등하게 배치
+        >>>[1...2...3]
+    - space-around : 모든아이템 양끝부분 공간이 동일하게 배치
+        >>>[.1..2..3.]
+    - space-evenly : 끝, 아이템 사이의 모든 남는 공간이 같다
+        >>>[.1.2.3.]
+
+    */
+}
+.main#mainBox1 {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* align-items: 교차축에 따라 아이템을 어떻게 정렬할건지; 
+    - stretch : (default) 자식에 높이(너비)가 없다면 확장
+    - flex-start : 교차축의 시작점 기준
+    - flex-end : 교차축의 끝점 기준
+    - center : // 가운데 기준
+    - baseline : 텍스트의 베이스라인 기준
+        >>> 폰트 사이즈에 영향받음
+    
+    */
+    /* overflow-y: scroll; */
+}
+.main .item {
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    line-height: 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family:'Times New Roman', Times, serif;
+    background-color: gray;
+}
+.main#mainBox1 .item {
+    width: 80%;
+    border-radius: 2rem;
+    color: orangered;
+}
+.main #i1 {
+    background-color: blue;
+}
+.main #i2 {
+    background-color: royalblue;
+}
+.main #i3 {
+    background-color: lightblue;
+}
+.main #i4 {
+    background-color: skyblue;
+}
+.main #i5 {
+    background-color: aqua;
+    /* font-size: 3rem; */
+}
+
+.main#mainBox2 {
+    width: 40%;
+    /* height: 200px; */
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: space-around;
+    /* align-content: 여러행을 정렬
+    조건 :  flex-wrap : wrap*;
+            아이템이 2층이상
+            교차축 방향 설정
+            
+    align-items가 아이템이 배치되는 영역에 관한설정이라면
+    align-content는 아이템 자체의 배치설정
+    >>> wrap 상태로 묶인 한줄을 한 아이템으로 보고 
+    align-items처럼 행동하는거 같다
+    - strech : 
+    - flex-start
+    - flex-end
+    - center
+    - space-between
+    - space-around
+    - space-evenly*/
+    flex-wrap: wrap;
+    /* wrap : 줄바꿈 */
+}
+.main#mainBox2 .item {
+    width: 6rem;
+}
+#i6 {
+    background-color: blue;
+}
+#i7 {
+    background-color: aqua;
+}
+#i8 {
+    background-color: skyblue;
+}
+#i9 {
+    background-color: royalblue;
+}
+
+.outer {
+    width: 300px;
+    height: 300px;
+    background-color: aquamarine;
+}
+.inner {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
+
+.outer1{
+    position: relative;
+}
+.outer2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner1{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.inner2{
+
+}

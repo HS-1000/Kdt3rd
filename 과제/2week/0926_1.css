@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+.circle {
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+    border-radius: 2.5rem;
+    background-color: pink;
+    animation:moveCircle 3s linear 6;
+}
+
+@keyframes moveCircle{
+    0%, 100% {
+        top: 0;
+        left: 0;
+    }
+    25% {
+        top: 0;
+        left: 30rem;
+    }
+    50% {
+        top: 30rem;
+        left: 30rem;
+    }
+    75% {
+        top: 30rem;
+        left: 0;
+    }
+}

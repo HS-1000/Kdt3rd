@@ -1,0 +1,217 @@
+/* 
+  TODO: HTML 요소들의 크기는 미리 설정해 두었습니다.
+  position, animation 등을 활용하여 과제를 완성해주세요!
+*/
+body {
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  height: 450px;
+}
+
+section .sky {
+  width: 100%;
+  height: 100%;
+  animation: sky 24s linear infinite;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+section .sky .sun {
+  position: absolute;
+  width: 180px;
+  animation: sun 24s linear infinite;
+}
+
+section .sky .moon {
+  width: 160px;
+  position: absolute;
+  animation: moon 24s linear infinite;
+
+}
+
+section .sky .cloud_1 {
+  width: 160px;
+  position: absolute;
+  top: 160px;
+  animation: cloud_1 6s linear infinite alternate;
+}
+
+section .sky .cloud_2 {
+  width: 90px;
+  position: absolute;
+  top: 200px;
+  animation: cloud_2 4s linear 1s infinite alternate;
+}
+
+section .city .city_img {
+  width: 80%;
+  animation: sky 24s linear infinite;
+  padding: 0 10%;
+
+}
+section .city {
+  width: 100%;
+  /* padding: 0 20%; */
+  /* text-align: center; */
+}
+
+/* ANIMATION */
+/* 
+  TODO:.5종류의 애니메이션이 필요함
+  - sky: 배경색 변경 애니메이션
+  - sun: sun.png가 회전하는 애니메이션
+  - moon: moon.png가 회전하는 애니메이션
+  - cloud_1: 큰 구름이 좌우로 이동하는 애니메이션
+  - cloud_2: 작은 구름이 좌우로 이동하는 애니메이션
+*/
+@keyframes sky {
+  0%, 100% {
+    background-color: #636888;
+  }
+  25% {
+    background-color: #b1e1e2;
+  }
+  50% {
+    background-color: #fcd2e2;
+  }
+  75% {
+    background-color: #675577;
+  }
+}
+@keyframes sun {
+  0%{
+    top: 70px;
+    left: 70px;
+    transform: rotate(0);
+    opacity: 0;
+  }
+  25% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  50% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(270deg);
+    opacity: 0;
+  }
+  100% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes moon {
+  0%{
+    top: 70px;
+    left: 70px;
+    transform: rotate(0);
+    opacity: 1;
+  }
+  25% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  50% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+  75% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(270deg);
+    opacity: 0;
+  }
+  100% {
+    top: 70px;
+    left: 70px;
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+@keyframes cloud_1 {
+  0% {
+    opacity: 0;
+    top: 160px;
+    left: 7%;
+  }
+  25% {
+    opacity: 1;
+    top: 160px;
+    left: 22%;
+  }
+  50% {
+    top: 160px;
+    opacity: 1;
+    left: 37%;
+  }
+  75% {
+    top: 160px;
+    opacity: 1;
+    left: 53%;
+  }
+  100% {
+    top: 160px;
+    opacity: 0;
+    left: 68%;
+  }
+}
+@keyframes cloud_2 {
+  0% {
+    top: 200px;
+    left: 0;
+    opacity: 0;
+  }
+  25% {
+    top: 200px;
+    left: 20%;
+    opacity: 1;
+  }
+  50% {
+    top: 200px;
+    left: 40%;
+    opacity: 1;
+  }
+  75% {
+    top: 200px;
+    left: 60%;
+    opacity: 1;
+  }
+  100% {
+    top: 200px;
+    left: 80%;
+    opacity: 0;
+  }
+}
+
+/*
+  참고: 알아야 할 속성 소개
+  oapcity: 0 ~ 1 사이의 값으로 불투명도를 설정할 수 있음
+  - 0: 요소가 완전히 투명해 보이지 않음
+  - 0~1 사이의 값: 요소가 반투명해 뒤에 내용을 볼 수 있음
+  - 1: 요소가 불투명함 
+*/
+
+/*
+  참고: 배경 색상 종류
+  - background-color: #636888;
+  - background-color: #b1e1e2;
+  - background-color: #fcd2e2;
+  - background-color: #675577;
+  - background-color: #636888;
+*/

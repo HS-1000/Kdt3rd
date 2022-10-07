@@ -1,0 +1,4 @@
+.myPw:focus {
+    background-color: gray;
+}
+/* 입력칸이 활성화되었을때 */

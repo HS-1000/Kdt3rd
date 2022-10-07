@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+#hello {
+    background-color: royalblue;
+    height: 4rem;
+    padding: 1rem;
+    font-size: 2rem;
+}
+.link {
+    background-color: lightblue;
+    height: 10rem;
+    padding: 1rem;
+    font-size: 2rem;
+    /* text-decoration:solid; */
+}
+.link a {
+    text-decoration: none;
+    color: blue;
+}
+.link a:not(#Google){
+    /* a:not(b) -> a중 b가 아닌것들 */
+    color:gray;
+}
+#Google:hover {
+    /* 마우스가 올라가면 일어나는일 */
+    font-weight: 900;
+    color: gold;
+}
+#Naver:active {
+    /* 누를때 */
+    font-weight: 900;
+    color:aqua;
+}
+#Daum:visited {
+    /* 접속한 기록이 있을때 */
+    font-weight: 900;
+    color: cyan;
+}
+.menu{
+    background-color: lightgray;
+}
+.menu h2 {
+    margin: 0;
+    padding-left: 2rem;
+}
+.menu>ul>li:nth-child(1){
+    /* n번쩨 자식태그 */
+    color:red;
+}
+.menu #setC:last-child{
+    /* 마지막 자식 태그 */
+    color: green;
+}
+.menu #setB li:nth-child(2n-1){
+    /* 홀수만 적용, 짝수는 (2n) */
+    color:blue;
+}
+div.nums {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.nums span:nth-child(even){
+    /* 짝수 */
+    color:orange;
+}
+.nums span:nth-child(odd){
+    /* 홀수 */
+    color: red;
+}
+.nums span:nth-child(3n+4){
+    /* 공식, n은 0부터 시작 -> 3n+1 이면 1도 포함 */
+    color:green;
+}
+.nums2 {
+    font-size: 2rem;
+    /* color: gray; */
+    font-weight: 700;
+    /* 전체 */
+}
+.nums2 span {
+    color: blue /*!important*/;
+    /* 태그 */
+}
+.nums2 .n {
+    color: green;
+    /* 클래스 */
+}
+.nums2 #two {
+    color: purple;
+    /* 아이디 */
+}
+/* 인라인 > 아이디 */

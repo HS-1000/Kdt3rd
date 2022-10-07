@@ -1,0 +1,106 @@
+/* common */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    /* padding-top: 10%; */
+    margin: 0;
+    height: 100vh;
+    background-color: darkgray;
+    /* 
+        vh? 처음 보는 단위가 등장했습니다!
+        - vh: viewport height의 약자로 브라우저 1vh는 브라우저 뷰포트 높이의 1/100을 의미해요.
+        - 즉, 100vh는 브라우저 뷰포트 높이와 같아요. body 태그의 높이를 브라우저 뷰포트의 높이와 같게 설정했어요!
+        - 반응형 웹에 대해 학습하실 때 배우게 될 단위입니다 :)
+    */
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+h1, p {
+    margin: 0;
+}
+
+p {
+    text-align: justify;
+    height: 90%;
+    color: black !important;
+    font-style: normal !important;
+}
+
+section {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 10%;
+    align-items: center;
+    /* height: 80vh; */
+}
+article {
+    background-color: white;
+    border-radius: 10px;
+    width: 20%;
+    padding: 3%;
+}
+article img {
+    width: 100%;
+    border-color: black;
+    border: 5px;
+    border-radius: 7px;
+    margin : 5px;
+    /* background-color: black; */
+    /* margin: 10%; */
+}
+#lotte,
+#hanwha {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+section :hover {
+    transform: translate(0, -30px);
+    box-shadow: 7px 7px 7px white;
+
+}
+
+section article :hover {
+    transform: translate(0, 0);
+    box-shadow: 0px 0px 0px white;
+}
+
+article#kiwoom :hover{
+    color: red;
+    font-style: italic;
+}
+#lotte :hover{
+    color: blue;
+    font-style: italic;
+}
+#lg :hover{
+    color: pink;
+    font-style: italic;
+}
+#hanwha :hover{
+    color: orange;
+    font-style: italic;
+}
+/* #kiwoom .caption :hover{
+    color: black;
+ㅠ파랑피ㅇ크 오렌지
+}
+#kiwoom p :not(:hover){
+    color: black;
+} */
+
+/*
+#kiwoom :not(:hover) {
+    color: black;
+} */
+
+/* TODO: Slack에서 실행영상을 참고해 제작해주세요~ */

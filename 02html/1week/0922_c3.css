@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+div.beach1{
+    width: 400px;
+    position: absolute;
+    left: 160px;
+    background-color: lightgray;
+}
+#beachImg {
+    width: 100%;
+}
+#beachImg:hover {
+    transition: transform 1s;
+    /* transition:
+    css변화가 있을때 일정시간동안 변화 하도록 하는것 */
+    /* transform: skew(15deg, 15deg); */
+    /* skew, skewX, skewY 객체 기울이기*/
+    /* transform: scale(1.2); */
+    /* scale()
+    크기조절, skew처럼 X,Y 따로 가능 */
+    /* transform: rotate(30deg); */
+    /* rotate: 회전 
+    rotateX : X축 기준
+    rotateY : Y축 기준
+    공간좌표를 생각하자*/
+    transform: translate(30px, 30px);
+    /*이동 rotate 처럼 축 기준으로
+    브라우저의 Y축은 아래방향*/
+}
+#beachImg:not(:hover) {
+    /* 이건 마우스를 땔때? */
+    transition: transform 1s;
+}

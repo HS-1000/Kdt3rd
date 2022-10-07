@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+.box1 {
+    width: 5rem;
+    height: 5rem;
+    background-color: gray;
+    /* margin: 2rem; */
+
+}
+.box1:nth-child(1):hover{
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    /* transition-delay: 1s; */
+    /* 속성값 변경시 변경시간 결정 
+    */
+    /* transition-property: ; */
+    /* transition-duration: ms, s 에니메이션과 같음 */
+    /* transition-timing-function: ; 변화시간별 속도지정
+        - 에니메이션 타이밍 펑션과 같은 값 사용*/
+    /* transition-delay: ; 지연시간*/
+    width: 16rem;
+    /* height: 8rem; */
+    cursor: pointer;
+    background-color: green !important;
+    opacity: 0;
+    /* opacity : 0~1 입력, 불투명도 설정, 투명하면 요소뒤의 내용이 
+    보일수 있다*/
+    /*cursor: 요소위에 마우스가 올라갔을때 보여줄 모양 
+    - default
+    - pointer
+    - wait
+    - not allowed
+    */
+    /* transition: property duration time-func delay; 
+        축약형 없으면 생략하구 다음꺼로*/
+}
+.box1:not(:hover){
+    transition: all 1s 2s;
+}
+.box1:nth-child(2){
+    background-color: red;
+}
+.box1:nth-child(2):hover{
+    transform: rotate(180deg);
+    background-color: green;
+    transition: all 2s ease-out;
+}
+.box1:nth-child(3){
+    background-color: blue;
+}
+.box1:nth-child(3):hover{
+    transform: scale(3) translate(100px, 100px);
+    transition: all 3s ease-out;
+}
+.box1:nth-child(4){
+    background-color: gold;
+}
+.box1:nth-child(4):hover{
+    transform: translateY(-10px);
+    box-shadow: 4px 4px 10px #0008;
+    transition: all 2s ease-in;
+}
+.box1:nth-child(5){
+    background-color: aqua;
+}
+.box1:nth-child(5):hover{
+    background-color: blue;
+    transition: all 5s ease-in-out;
+}
+
+.circle {
+    background-color: lightgray;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 2.5rem;
+}
+.circle#c1 {
+    position: relative;
+    animation: name 8s linear 2s;
+    animation-iteration-count: infinite;
+
+}
+.circle#c2 {
+    position: relative;
+    /* bottom: 0; */
+    background-color: royalblue;
+    animation: bounce2 1.6s infinite;
+
+}
+.circle#c3 {
+    position: relative;
+    background-color: pink;
+    animation: rotate 2s linear infinite;
+}
+.smallCircle {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: black;
+    z-index: 1;
+}
+.circle#c4 {
+    position: absolute;
+    background-color: salmon;
+    
+}
+.circle#c5 {
+    position: absolute;
+    background-color: crimson;
+    animation: bounce 0.8s ease-out infinite alternate;
+}
+@keyframes name{
+    /* 트렌지션과 에니메이션의 차이
+    -변화될 스타일을 지정; hover, onclick 이벤트 발생 
+    -에니메이션은 중간중간 단계를 지정하고 세밀한 변화가능
+        하나 이상의 프레임으로 설정가능*/
+    /* keyframe
+     이름, 시작, 중간, 끝*/
+        /* animation-name
+    animation-duration : s, ms 
+    //- delay : s, ms
+    //- interation-count
+    //- timing-function : linear, ease, ease-in, ease-out, ...
+    //-direction : 에니메이션 종료후 반복방향 결정
+        normal reverse alternate alternate-reverse*/
+    0% {
+        left: 0px;
+    }    
+    25% {
+        left: 200px;
+    }
+    50% {
+        left: 400px;
+    }
+    75% {
+        left: 200px;
+    }
+    100% {
+        left: 0;
+    }
+}
+@keyframes bounce{
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: 150px;
+    }
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes bounce2 {
+    /* from, to {
+        같다면 이렇게 해두됨
+        bottom: 0;
+    } */
+    0% {
+        bottom: 0;
+        animation-timing-function: ease-out;
+    }
+    50% {
+        bottom: 200px;
+        animation-timing-function: ease-in;
+    }
+    100% {
+        bottom: 0;
+    }
+}

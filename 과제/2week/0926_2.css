@@ -1,0 +1,16 @@
+.text {
+    position: absolute;
+    /* width: 300%; */
+    animation: textmove 3s ease-out 1;
+}
+
+@keyframes textmove {
+    from {
+        width: 300%;
+        left: 100%;
+    }
+    to {
+        width: 100%;
+        left: 0%;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./1005_c.css">
+</head>
+<body>
+    <ul id="dessert">
+        <li id="cookie">쿠키</li>
+        <li id="cake">케이크</li>
+        <li id="bra">브라우니</li>
+        <li id="fruite">과일</li>
+        <hr>
+        <button onclick="alert('inline')">BTN1</button>
+        <button id="btn2">BTN2</button>
+        <button id="btn3">BTN3</button>
+    </ul>
+    <br>
+    <span id="tag1" class = "">#banana</span>
+    <span id="tag2">#apple</span>
+    <br>
+    <button id="clickMe">11</button>
+    <form id="todo-form">
+        <input type="text" placeholder="냐옹" name="todo"><br>
+        <button type="submit">Add</button>
+        <input type="password" class="myPw"><br>
+        <input type="number"><br>
+        <input type="range"><br>
+        <input type="color"><br>
+        <input type="email"><br>
+        <input type="file"><br>
+        <input type="date"><br>
+        <input type="checkbox" checked>A
+        <input type="checkbox">B
+        <input type="checkbox">C<br>
+        <input type="radio" name="food">pasta
+        <input type="radio" name="food">rice
+        <input type="radio" name="food">noodle<br>
+        <textarea name="" cols="30" rows="10"></textarea><br>
+        <select name="num" >
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+        </select>
+        <!-- 폼 내부의 버튼은 기본 타입이 submit 외부의 버튼은 단순 클릭 -->
+        <!-- label 태그
+        : 캡션의미, 웹 접근성 도움, 폼을 더 편리하게 사용 가능 -->
+        <!-- 입력한 정보를 서버로 보내서 활용
+            사용자의 입력을 받아서 프론트에서 활용 -->
+    </form>
+    <ul class="todos">
+
+    </ul>
+    
+    <form>
+        <label for="username">username</label>
+        <input type="text" id="username">
+        <br>
+        <input type="radio" name="ch" id="ch1">
+        <label for="ch1">채널1</label>
+        <input type="radio" name="ch" id="ch2">
+        <label for="ch2">채널2</label>
+    </form>
+    <script src="./1005_c.js"></script>
+</body>
+</html>

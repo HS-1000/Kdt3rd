@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.num {
+    font-size: 3rem;
+}
+
+#cat1 {
+    width: 300px;
+}
+
+.blueText {
+    color: blue;
+}
+.append_p {
+    color: gold;
+    font-size: 1rem; 
+}
