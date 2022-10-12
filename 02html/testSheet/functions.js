@@ -60,7 +60,6 @@ const sortElementBySelector = function(selector, oprandSelector) {
     let map = [0];
     let index;
     for(let index=1; index<size; index++) {
-        // console.log(index, targetTags[index], Number(targetTags[index].innerText));
         for(let mapIndex=0; mapIndex<=map.length; mapIndex++) {
             if(mapIndex == map.length) {
                 map.push(index);
@@ -80,6 +79,19 @@ const sortElementBySelector = function(selector, oprandSelector) {
         targetTags[i].innerHTML = targetTagsHTML[map[i]];
     }
 }
+const elementsReverseBySelector = function(selector) {
+    let targetTags = document.querySelectorAll(selector);
+    let reversedTagsHTML = [];
+    for(let i=targetTags.length-1; i>=0; i--) {
+        reversedTagsHTML.push(targetTags[i].innerHTML);
+    }
+    for(let i=0; i<targetTags.length; i++) {
+        targetTags[i].innerHTML = reversedTagsHTML[i];
+    }
+}
+
+// 여기서부터 예시를 위한 코드
+
 let sortBtn = document.getElementById('div_sort');
 sortBtn.addEventListener('click', function() {
     console.log(1);
@@ -88,4 +100,12 @@ sortBtn.addEventListener('click', function() {
 let likeSortBtn = document.getElementById('like_sort');
 likeSortBtn.addEventListener('click', function() {
     sortElementBySelector('.img_card', '.img_card>div>span');
+});
+let divReverse = document.getElementById('div_reverse');
+divReverse.addEventListener('click', function() {
+    elementsReverseBySelector('.sortTest div');
+});
+let likeReverse = document.getElementById('like_reverse');
+likeReverse.addEventListener('click', function() {
+    elementsReverseBySelector('.img_card');
 });
