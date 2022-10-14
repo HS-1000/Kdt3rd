@@ -1,0 +1,24 @@
+{
+  "name": "kdt3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HS-1000/Kdt3rd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HS-1000/Kdt3rd/issues"
+  },
+  "homepage": "https://github.com/HS-1000/Kdt3rd#readme",
+  "dependencies": {
+    "cjs": "^0.0.11",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --blue5 : #0066FF;
+  /* --{type: ex.color}-{info: ex.classColor5}: #0066ff  */
+}
+body {
+  margin: 0;
+  font-size: 20px;
+  /* Default: 16px  */
+}
+h1 {
+  margin: 0;
+  background-color: var(--blue5) !important;
+}
+
+div {
+  height: 100px;
+}
+
+body :nth-child(odd) {
+  background-color: skyblue;
+}
+body :nth-child(even) {
+  background-color: var(--blue5);
+}
+#percent_c {
+  background-color: pink;
+  width: 90%; 
+   /*부모크기에 상대적 %  */
+  /* height: 100px; */
+}
+#em {
+  font-size: 2em;
+}
+#rem {
+  font-size: 2rem;
+}
+#viewport {
+  width: 70vw;
+  height: 20vh;
+  border: 5px solid black;
+  margin: 0 10vh;
+  font-size: 5vh;
+}
+
+
+/* @mdeia <media type> and (media feature) {
+
+} */
+@media screen and (min-width: 700px) {
+  /* 너비가 700px 이상일때 */
+  #media_query1 {
+    color: white;
+    background-color: darkgray;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  /* 너비가 1024 미만 and 화면 방향이 가로일때 */
+}

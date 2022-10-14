@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+div {
+  background-color: skyblue;
+  width: 100px;
+  height: 100px;
+  margin: 16px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+@media screen and (min-width: 700px) {
+  div {
+    background-color: black;
+  }
+  body {
+    display: flex;
+  }
+}
