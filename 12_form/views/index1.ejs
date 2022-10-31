@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  hello 12123
+  <h3>GET</h3>
+  <form action="/getForm" name="login1" method="get">
+    <!-- action: 폼을 전송할 서버주소 지정 -->
+    <!-- name이 벡엔드에서 id, class 같은 key 역할 -->
+    <!-- input의 타입을 number로 설정 가능(텍스트 예외처리) -->
+    <!-- method: url에 정보를 포함해서 보내면 GET 아니면 POST -->
+    <!-- fieldset(테두리 생김), legend(테두리위에 이름) TAG form 요소들을 정리, 모을때 -->
+    <input type="text" placeholder="ID" name="GetId">
+    <input type="text" placeholder="PW" name="GetPw">
+    <button type="submit">send</button>
+  </form>
+  <h3>POST</h3>
+  <form action="/postForm" name="login2" method="post">
+    <input type="text" placeholder="ID" name="PostId">
+    <input type="text" placeholder="PW" name="PostPw">
+    <button type="submit">send</button>
+  </form>
+  <script>
+    // form 태그의 name속성값으로 선택
+    console.log(document.forms['login11']);
+    console.log(document.forms['login12']);
+
+</script>
+</body>
+</html>
