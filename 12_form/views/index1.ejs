@@ -16,7 +16,7 @@
     <!-- input의 타입을 number로 설정 가능(텍스트 예외처리) -->
     <!-- method: url에 정보를 포함해서 보내면 GET 아니면 POST -->
     <!-- fieldset(테두리 생김), legend(테두리위에 이름) TAG form 요소들을 정리, 모을때 -->
-    <input type="text" placeholder="ID" name="GetId">
+    <input type="text" placeholder="ID" name="GetId" required pattern="^[0-9a-zA-Z[.]]{8,}$" title="hint">
     <input type="text" placeholder="PW" name="GetPw">
     <button type="submit">send</button>
   </form>

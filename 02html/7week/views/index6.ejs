@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+  <h3>동적 파일 업로드 (Axios)</h3>
+  
+  <input type="file" name="userfileAxios" id="dynamic-file"> <br>
+  <button type="button" onclick="axiosFileUpload();">upload</button> <br> <br>
+  <img src="" width="200" id="user_img" alt="">
+  <br> <br>
+  <button type="button" onclick="showImgList();">image list</button>
+  <div id="fileList"></div>
+
+  <script>
+    const axiosFileUpload = () => {
+      const formData = new FormData();
+      const file = document.getElementById('dynamic-file');
+      formData.append('userfileAxios', file.files[0]);
+      axios({
+        method: "POST",
+        url: '/dyFile',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(res => {
+        console.dir(res.data.path);
+        document.querySelector('img').src = res.data.path;
+      });
+    }
+
+
+    const imgDir = "../uploads/";
+    const showImgList = () => {
+      axios({
+        method: "GET",
+        url: "fileList",
+        data: {"req":"true"}, //nothing mean
+      }).then(res => {
+        console.dir(res.data.data);
+        document.querySelector("#fileList").innerText = '';
+        res.data.data.forEach(element => {
+          let imgSrcBtn = document.createElement('div');
+          imgSrcBtn.innerText = element;
+          imgSrcBtn.addEventListener('click', () => {
+            document.querySelector('img').src = imgDir + element;
+          });
+          document.querySelector("#fileList").append(imgSrcBtn);
+          document.querySelector("#fileList").append(document.createElement('br'));
+
+          // document.querySelector("#fileList").innerText += element;
+          // document.querySelector("#fileList").innerText += '\n';          
+        });
+      });
+    }
+  </script>
+</body>
+</html>

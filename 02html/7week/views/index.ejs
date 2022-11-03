@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  ♡
+  <!-- ajax -->
+  <!-- JQuery 를 사용해야 할만하다 -->
+  <form name="form1">
+    이름<input type="text" name="name" required> <br>
+    성별
+    <input type="radio" name="gen" value="m" required>남자
+    <input type="radio" name="gen" value="f">여자
+    <br>
+    <button type="button" onclick="ajaxget();">ajax get submit</button>
+    <button type="button" onclick="ajaxpost();">ajax post submit</button>
+    <hr>
+    <button type="button" onclick="axiosget();">axios get submit</button>
+    <button type="button" onclick="axiospost();">axios post submit</button>
+    <hr>
+    <button type="button" onclick="fetchget();">fetch get submit</button>
+    <button type="button" onclick="fetchpost();">fetch post submit</button>    
+  </form>
+  <div class="result">
+
+  </div>
+
+  <script>
+    const result = document.querySelector('.result');
+
+    const ajaxget = () => {
+      console.log('click ajax get');
+      const form = document.forms['form1'];
+      console.dir(form);
+      console.dir(form.name);
+      console.dir(form.gen);
+      const data = {
+      name : form.name.value,
+      gender : form.gen.value
+      }
+      $.ajax({
+        url: '/ajax',
+        type: 'GET',
+        data: data,
+        success: data => {
+          console.log(1, data);
+          result.innerText = `${data.name}님은 
+          ${data.gender == 'm' ? '남자' : '여자'}입니다`;
+        }
+      });
+    }
+    const ajaxpost = () => {
+      console.log('click ajax post');
+      const form = document.forms['form1'];
+      const data = {
+        name : form.name.value,
+        gender : form.gen.value
+      }
+      $.ajax({
+        url: '/ajax',
+        type: 'POST',
+        data: data,
+        success: data => {
+          console.log(2, data);
+        }
+      });
+    }
+
+    const axiosget = () => {
+      const form = document.forms['form1'];
+      const data = {
+      name : form.name.value,
+      gender : form.gen.value
+      }
+      axios({
+        method: 'GET',
+        url: '/axios',
+        params: data
+      }).then(res => {
+        console.log(res);
+        console.log(res.data);
+        result.innerText = `${res.data.name}님의 성별은${res.data.gender}`
+      });
+    }
+    const axiospost = () => {
+      const form = document.forms['form1'];
+      const data = {
+      name : form.name.value,
+      gender : form.gen.value
+      }
+      axios({
+        method: 'POST',
+        url: '/axios',
+        params: data
+      }).then(res => {
+        console.log(res.data);
+        result.innerText = `${res.data.name}님의 성별은${res.data.gender}`
+      });
+    }
+    const fetchget = () => {
+      const form = document.forms['form1'];
+      fetch(`/fetch?name=${form.name.value}&gender=${form.gen.value}`, 
+      {method: 'GET'
+      }).then(res => {
+        console.log(res);
+        return res.json();
+        // json 형식으로 파싱이 필요하다 fetch는
+      }).then(data => {
+        console.log(data);
+        result.innerText = `${data.name}님의 성별은${data.gender == 'm' ? '남자' : '여자'}`
+      });      
+    }
+    const fetchpost = () => {
+      const form = document.forms['form1'];
+      const data = {
+      name : form.name.value,
+      gender : form.gen.value
+      }
+      fetch(`/fetch`, {
+        method: 'POST',
+        headers: {
+          'Content-type' : 'application/json'
+        },
+        body : JSON.stringify(data)
+      }).then(res => {
+        return res.json();
+      }).then(data => {
+        result.innerText = `${data.name}님의 성별은${data.gender == 'm' ? '남자' : '여자'}`
+      });
+    }
+    
+    
+  </script>
+</body>
+</html>

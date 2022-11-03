@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+      height: 100vh;
+    }
+    .flex_c1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .card {
+      background-color: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      display: flex;
+      width: 50vw;
+      /* height: 50vh; */
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    .card img {
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex_c1">
+    <!-- <div class="flex_c2"> -->
+      <div class="card">
+        <div class="my_img">
+          <img src= <%= imgSrc %> alt="">
+        </div>
+        <h3><%= userId %>님 환영합니다!</h3>
+        <div>비밀번호: <%= userPw %></div>
+        <div>이름: <%= userNm %></div>
+        <div>나이: <%= userAg %></div>
+      </div>
+    <!-- </div> -->
+  </div>
+</body>
+</html>

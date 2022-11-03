@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습29</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <form name="info">
+    이름<input type="text" name="userName" required>
+    <fieldset>
+      <legend>성별</legend>
+      <input type="radio" name="gen" value="m" required>남자 
+      <input type="radio" name="gen" value="f">여자
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>생년월일</legend>
+      <select name="birthDayYear">
+        <% for(var i = 2023; i > 1900; i--) { %>
+          <option><%= i %></option>
+        <% } %>
+      </select>년
+      <select name="birthDayMonth">
+        <% for(var i = 1; i <= 12; i++) { %>
+          <option><%= i %></option>
+        <% } %>
+      </select>월
+      <select name="birthDayDate">
+        <% for(var i = 1; i <= 31; i++) { %>
+          <option><%= i %></option>
+        <% } %>
+      </select>일
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>관심사</legend>
+      <input type="checkbox" name="tr"> 여행
+      <input type="checkbox" name="fa"> 패션
+      <input type="checkbox" name="fo"> 음식
+    </fieldset>
+    <br>
+    <button type="button" onclick="sign();">회원가입</button>
+  </form>
+  <br>
+  <div class="result">
+
+  </div>
+  <script>
+    const sign = () => {
+      const form = document.forms['info'];
+      const data = {
+        name: form.userName.value,
+        gender: form.gen.value,
+        birthDay: [form.birthDayYear.value, form.birthDayMonth.value, form.birthDayDate.value],
+        interest: {
+                    travel: form.tr.value,
+                    fashion: form.fa.value,
+                    food: form.fo.value
+                  }
+      }
+      axios({
+        method: 'GET',
+        url: '/axiosSign',
+        params: data
+      }).then(res => {
+        let result = document.querySelector('.result');
+        result.innerText = `${res.data.name}님 환영합니다! \n
+        성별: ${res.data.gender == 'm' ? '남자' : '여자'} \n
+        생일: ${res.data.birthDay[0]}년 ${res.data.birthDay[1]}월 ${res.data.birthDay[2]}일`;
+      });
+    }
+  </script>
+</body>
+</html>
