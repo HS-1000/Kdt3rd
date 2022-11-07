@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습30</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+  <form name="login">
+    ID <input type="text" name="userID" required>
+    PW <input type="password" name="userPW" required minlength="6" placeholder="최소 6글자 이상">
+    <button type="button" onclick="loginAxios();">Log in</button>
+  </form>
+  <div class="result"></div>
+  <script>
+    let result = document.querySelector('.result');
+    const loginAxios = () => {
+      const form = document.forms['login'];
+      if (!form.userID.checkValidity() || !form.userPW.checkValidity()) {
+        result.innerText = "⚠ 입력을 확인해주세요";
+        result.style.color = "orange";        
+        return 0;
+      }
+      const data = {
+        id : form.userID.value,
+        pw : form.userPW.value
+      }
+      axios({
+        method: 'POST',
+        url: '/axiosLogin',
+        params: data
+      }).then(res => {
+        if(res.data.r) {
+          result.innerText = `${res.data.name}님 환영합니다! 어서오세요!`;
+          result.style.color = "blue";
+        } else {
+          result.innerText = "아이디와 비밀번호를 확인해보세요.";
+          result.style.color = "red";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
