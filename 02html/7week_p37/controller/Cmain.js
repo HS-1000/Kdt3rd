@@ -8,8 +8,8 @@ exports.main = (req, res) => {
 exports.login = (req, res) => {
   // ((req.query.id in id_pw) && (req.query.pw == pw)) ? res.send({"r":true}) : res.send({"r":false});
   if(req.query.id in id_pw) {
-    let userPw = id_pw[req.query.id].split("//")[0];
-    let userName = id_pw[req.query.id].split("//")[1];
+    let userPw = id_pw[req.query.id].split("//")[1];
+    let userName = id_pw[req.query.id].split("//")[2];
     if(req.query.pw == userPw) {
       res.send({"r":true, "name":userName});
     } else {

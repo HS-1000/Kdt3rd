@@ -1,0 +1,4 @@
+ALTER TABLE user MODIFY id VARCHAR(10);
+ALTER TABLE user DROP age;
+ALTER TABLE user ADD interest VARCHAR(100);
+

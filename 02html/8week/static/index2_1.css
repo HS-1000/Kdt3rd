@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+#visitor_comments {
+  background-color: black;
+  color: white;
+}
+#visitor_comments td {
+  margin: 5px;
+}

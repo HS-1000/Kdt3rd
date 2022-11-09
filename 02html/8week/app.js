@@ -14,12 +14,16 @@ const indexRouter = require('./routes/index');
 // localhost:PORT/ 경로를 기본으로 ./routes/index.js 파일에 선언한 대로 동작
 app.use('/', indexRouter);
 
-// [404 Error]
-// (중요) 맨 마지막 라우트로 선언
-// 그렇지 않으면 나머지 코드 무시됨
-// * : all
+const userRouter = require('./routes/user');
+app.use('/user', userRouter);
+// /user에서 user.js에 선언한대로 동작
+
+const mvc_mysql = require('./routes/mvc_mysql');
+app.use('/hello', mvc_mysql);
+
+
 app.get('*', (req, res) => {
-  res.render('404');
+  res.render('404', {errorInfo : "undefined"});
 });
 
 app.listen(PORT, () => {
