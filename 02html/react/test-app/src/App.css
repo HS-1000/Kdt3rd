@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+.main {
+  width: 90%;
+  height: 500px;
+  margin: 5%;
+  position: relative;
+}
+.main #grass {
+  /* z5 */
+  width: 90%;
+  height: 20%;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  position: absolute;
+}
+#c1 {
+  top: 220px;
+  left: 200px;
+  background-color: royalblue;
+}
+#c2 {
+  top: 270px;
+  left: 250px;
+  background-color: blue;
+  z-index: 1;
+}
+#c3 {
+  top: 295px;
+  left: 300px;
+  background-color: lightblue;
+  z-index: 2;
+}
+#c4 {
+  top: 345px;
+  left: 350px;
+  background-color: aqua;
+  z-index: 3;
+}
+#c5 {
+  top: 370px;
+  left: 400px;
+  background-color: aquamarine;
+  z-index: 5;
+}
+#eye1 {
+  width: 40px;
+  height: 40px;
+  left: 20px;
+  top: 20px;
+  border-radius: 20px;
+  background-color: white;
+  position: absolute;
+}
+#eye2 {
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+  border-radius: 10px;
+  background-color: black;
+  position: absolute;
+}
